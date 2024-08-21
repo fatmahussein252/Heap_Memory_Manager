@@ -34,9 +34,11 @@ To use the script to print all free nodes in gdb call the function using:
 ```
 freelst
 ```
-## The Allocation operation flowchart
+## Flowcharts
+
+### The Allocation operation flowchart
 ![HmmAlloc](https://github.com/user-attachments/assets/79147200-0e31-4044-9fd2-ae3a9380092a)
 
-## The Free operation flowchart
+### The Free operation flowchart
 ![HmmFree](https://github.com/user-attachments/assets/8b1159b6-5113-4982-bbec-0ec9d6c1e8bc)
 
