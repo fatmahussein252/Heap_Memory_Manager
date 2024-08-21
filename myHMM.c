@@ -195,7 +195,7 @@ void insertfree(void *freeptr)
 	
 }
  /* Description:
- This function is used to concatenate to adjacent free nodes if exist*/
+ This function is used to concatenate two adjacent free nodes if exist*/
 void catfree(struct freelst *node, struct freelst *adjacent)
 {
 	if ((char*)node + node->size == (char*)adjacent){
