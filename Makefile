@@ -1,4 +1,4 @@
-BUILD_TYPE=DEBUG
+BUILD_TYPE=DEFAULT
 TEST_FILE=stress_test.c # Default test file
 
 all: myHMM clean  
