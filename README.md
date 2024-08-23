@@ -15,7 +15,7 @@ This project consists of two phases. In phase 1, A simulation of the HMM without
 - HmmAlloc.png and HmmFree.png : flowcharts of the allocation and deallocation operations in my program.
 
 ## Usage
-After cloning the repo, compile the program using the commands:
+After cloning the repo, compile and run the program using the commands:
 ````
 make     
 ./myHMM
