@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-//#include "./myHMMheader.h"
+#include "myHMMheader.h"
 
 #define NUM_ALLOCS 10000
 #define MAX_SIZE 10240
@@ -17,7 +17,7 @@ void random_alloc_free_test() {
         if (pointers[index] == NULL) {
             // Allocate memory
             size_t size = (size_t)(rand() % MAX_SIZE) + 1;
-            pointers[index] = malloc(size);
+            pointers[index] = HmmAlloc(size);
             if (pointers[index] != NULL) {
                 printf("Allocated memory of size %zu at address %p\n", size, pointers[index]);
             } else {
@@ -26,7 +26,7 @@ void random_alloc_free_test() {
         } else {
             // Free memory
             printf("Freeing memory at address %p\n", pointers[index]);
-            free(pointers[index]);
+            HmmFree(pointers[index]);
             pointers[index] = NULL;
            
         }
@@ -36,7 +36,7 @@ void random_alloc_free_test() {
     for (int i = 0; i < NUM_ALLOCS; ++i) {
         if (pointers[i] != NULL) {
             printf("Freeing remaining memory at address %p\n", pointers[i]);
-            free(pointers[i]);
+            HmmFree(pointers[i]);
             pointers[i] = NULL;
         }
         

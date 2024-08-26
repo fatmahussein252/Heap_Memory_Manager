@@ -7,38 +7,37 @@ void *retptr = NULL;
 
 void *malloc(size_t size)
 {
-	if (size != 0){
-		//sleep(2);
-		retptr = HmmAlloc(size);
-		return retptr;
-	}else
-		return NULL;
+	retptr = HmmAlloc(size);
+	return retptr;
 }
 
 void *calloc(size_t nmemb, size_t size)
 {	
-	
+
 	if (size != 0){
 		retptr = HmmAlloc(size * nmemb);
 		if (retptr == NULL)
 			return NULL;
 		else{
-		memset(retptr, 0, size);
+		 void *retmeta = (char*)retptr - sizeof(size_t);
+		struct freelst *temp = (struct freelst*)retmeta;
+		size_t initsize =  temp->size - sizeof(size_t);
+		memset(retptr, 0, initsize);
 		return retptr;
 		}
-	}else
-		return NULL;	
+	}else{
+		retptr = HmmAlloc(0);
+		return retptr;
+	}	
 }
 
 void *realloc(void *allocatedptr, size_t size)
-{
+{	
+	//sleep(2);
 	// Case 1: allocatedptr is NULL
 	if (allocatedptr == NULL){
-	if (size != 0){
 		retptr = HmmAlloc(size);
 		return retptr;
-	}else
-		return NULL;
 	}
 	
 	// Case 2: size is 0 (deallocate the memory)
@@ -53,11 +52,14 @@ void *realloc(void *allocatedptr, size_t size)
       	  // Allocation failed, return NULL without freeing the original block
       	  return NULL;
     	  }
+    	  void *allocatedmeta = (char*)allocatedptr - sizeof(size_t);
+	struct freelst *allocated = (struct freelst*)allocatedmeta;
 	
-	void *allocatedmeta = allocatedptr - sizeof(size_t);
-	struct freelst *temp = (struct freelst*)allocatedmeta;
-	size_t copy_size = temp->size < (size + sizeof(struct freelst)) ? temp->size : (size + sizeof(struct freelst));
-	memcpy(retptr, allocatedmeta, copy_size);
+	void *retmeta = (char*)retptr - sizeof(size_t);
+	struct freelst *ret = (struct freelst*)retmeta;
+	
+	size_t copy_size = allocated->size < ret->size ? (allocated->size-(sizeof(size_t))) : size;
+	memcpy(retptr, allocatedptr, copy_size);
 	HmmFree(allocatedptr);
 	return retptr;
 	
