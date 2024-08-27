@@ -60,7 +60,7 @@ $ export LD_LIBRARY_PATH=/home/fatma/STM/session_6/HMM_phase2/mylib
 $ LD_PRELOAD=/home/fatma/STM/session_6/HMM_phase2/mylib/libmyHMM.so <command>
 ````
 Note: my HMM implementation does not include multi threading processes (e.g. like gdb).
-### sample output showing using mylib to run bash
+sample output showing using mylib to run bash
 ![image](https://github.com/user-attachments/assets/9e01e4f7-b5ac-4d8c-abf7-74515aa6af3f)
 
 Link to videos explaining my Design and testing mylib with several processes: https://drive.google.com/drive/folders/1ryHj1ZjsYD7PjsowYY0TwIYo5gz-M7VF?usp=drive_link
