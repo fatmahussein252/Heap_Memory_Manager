@@ -40,10 +40,10 @@ To use my implementation instead of the libc functions, the four functions: `mal
 
 ## HMM_phase_2
 This Directory includes:
-- myHMM.c : This file includes the implementation of the simulated heap and break, `HmmAlloc` and `HmmFree` functions and other helping functions.
+- myHMM.c : This file includes the implementation of the `HmmAlloc` and `HmmFree` functions and other helping functions.
 - Allocs_and_Free.c: This file includes the implementation of the dynamic memory allocate and free functions (`malloc`, `calloc`, `realloc`, `free`).
 - myHMMheader.h : Includes declarations of functions.
-- script.gdb : This script used while debugging to print the free nodes in my heap.
+- script.gdb : This script used while debugging to print the free nodes in the heap.
 - test.c: This code used to test my HMM putting it under stress of Allocations and Deallocations of random sizes and writing in the allocated memory.
 - allocated.gdb: This script used while debugging to print the allocated pointers in the test.c code .
 - flowcharts : contains flowcharts of the `malloc`, `calloc`, `realloc` and `free` operations.
@@ -59,7 +59,8 @@ Then add the library to the libraries path and run any process after preloading 
 $ export LD_LIBRARY_PATH=/home/fatma/STM/session_6/HMM_phase2/mylib
 $ LD_PRELOAD=/home/fatma/STM/session_6/HMM_phase2/mylib/libmyHMM.so <command>
 ````
-Note: my HMM implementation does not include multi threading processes (e.g. like gdb).
+Note: my HMM implementation does not support multi threading processes (e.g. like gdb).
+
 sample output showing using mylib to run bash
 ![image](https://github.com/user-attachments/assets/9e01e4f7-b5ac-4d8c-abf7-74515aa6af3f)
 
