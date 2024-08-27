@@ -5,13 +5,11 @@
 #include <math.h>
 #include "myHMMheader.h" 
 
-#define HEAP_SIZE 209715200
-#define HEAP_LAST_BYTE 209715199
 #define MY_BREAK_MARGIN (4*1024)
 #define ALLIGNMENT 8
 
-// initialize heap and break pointer 
-//char myHeap[HEAP_SIZE] = {0};
+// break pointer 
+
 void *mybrk = NULL;   // The simulated break
 void *oldbrk = NULL;  // used as the return pointer in HmmAlloc
 struct freelst* head = NULL; // the head of the free linked nodes

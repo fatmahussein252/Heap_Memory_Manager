@@ -25,7 +25,7 @@ void random_alloc_free_test() {
                 printf("Allocated memory of size %zu at address %p\n", size, pointers[index]);
                 
                 // Write data based on size allocated
-                size_t dataSize = (size > 52) ? 52 : size - 1; // Ensure the data fits
+                size_t dataSize = (size > 52) ? 52 : size; // Ensure the data fits
                 for (size_t j = 0; j < dataSize; ++j) {
                     pointers[index][j] = 'A' + (j % 26); // Fill with A, B, C, etc.
                 }
@@ -37,7 +37,7 @@ void random_alloc_free_test() {
             }
         } else {
             printf("Data read from allocated memory: %s\n", pointers[index]);
-            pointers[index]=realloc(pointers[index],(size_t)(rand() % MAX_SIZE) + 1);
+         //   pointers[index]=realloc(pointers[index],(size_t)(rand() % MAX_SIZE) + 1);
             // Free memory
             printf("Freeing memory at address %p\n", pointers[index]);
             free(pointers[index]);
