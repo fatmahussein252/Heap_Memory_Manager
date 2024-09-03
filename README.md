@@ -28,7 +28,7 @@ make TEST_FILE=<source file name>
 ````
 To compile with debugging use:
 ```
-make BUILD_TYPE=DEBU
+make BUILD_TYPE=DEBUG
 gdb -x script.gdb ./myHMM
 ```
 To use the script to print all free nodes in gdb call the function using:
