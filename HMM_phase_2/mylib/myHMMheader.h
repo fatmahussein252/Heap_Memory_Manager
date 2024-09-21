@@ -1,5 +1,5 @@
-#ifndef MYLIB_H
-
+#ifndef _MYLIB_H
+#define _MYLIB_H
 void *HmmAlloc(size_t);
 void HmmFree(void*);
 
